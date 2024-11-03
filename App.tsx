@@ -10,6 +10,7 @@ import React from 'react';
 // Screens
 import Signup from './screens/Signup';
 import Signin from './screens/Signin';
+import Home from './screens/Home';
 
 // Navigators
 const Stack = createNativeStackNavigator();
@@ -55,6 +56,7 @@ const App = () => {
         <StatusBar style="light" backgroundColor="#020d17" />
         <Stack.Navigator>
           <Stack.Screen name="TopTabBar" component={TopTabBar} options={{ headerShown: false }} />
+          <Stack.Screen name="Home" component={Home} options={{ headerShown: false }} />
         </Stack.Navigator>
       </NavigationContainer>
     </PaperProvider>
