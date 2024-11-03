@@ -75,7 +75,7 @@ export default Signup;
 
 const styles = StyleSheet.create({
   background: {
-    backgroundColor: "#00050e",
+    backgroundColor: "#020d17",
     height: "100%",
   },
 
