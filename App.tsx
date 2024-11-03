@@ -23,7 +23,7 @@ const TopTabBar = () => {
         },
 
         tabBarIndicatorStyle: {
-          backgroundColor: '#ffffff',
+          backgroundColor: '#157bcf',
           height: 1,
         },
 
