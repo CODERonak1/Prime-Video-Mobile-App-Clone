@@ -2,6 +2,7 @@ import { PaperProvider } from 'react-native-paper';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 
 // Screens
@@ -34,8 +35,8 @@ const TopTabBar = () => {
         tabBarInactiveTintColor: '#bb86fc',
       }}
     >
-      <TopTab.Screen name="Signin" component={Signin} />
-      <TopTab.Screen name="Signup" component={Signup} />
+      <TopTab.Screen name="Signin" component={Signin} options={{ title: 'Sign in' }}/>
+      <TopTab.Screen name="Signup" component={Signup} options={{ title: 'Sign up' }}/>
     </TopTab.Navigator>
   );
 };
@@ -44,6 +45,7 @@ const App = () => {
   return (
     <PaperProvider>
       <NavigationContainer>
+
         <Stack.Navigator>
           <Stack.Screen name="TopTabBar" component={TopTabBar} options={{ headerShown: false }} />
         </Stack.Navigator>
