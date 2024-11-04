@@ -11,6 +11,9 @@ import { onAuthStateChanged } from "firebase/auth";
 import { auth } from './firebaseConfig';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
+// icons
+import MaterialIcons from '@expo/vector-icons/MaterialIcons';
+import AntDesign from '@expo/vector-icons/AntDesign';
 
 // Screens
 import Signup from './screens/Signup';
@@ -21,14 +24,11 @@ import Search from './screens/Search';
 import Subscriptions from './screens/Subscriptions';
 import Downloads from './screens/Downloads';
 
-// Firebase configuration
-
 // Navigators
 const Stack = createNativeStackNavigator();
 const TopTab = createMaterialTopTabNavigator();
 const BottomTab = createBottomTabNavigator();
 
-// Top tab for sign in and sign up
 const TopTabBar = () => {
   return (
     <SafeAreaView style={{ flex: 1 }}>
@@ -47,7 +47,7 @@ const TopTabBar = () => {
             backgroundColor: '#020d17',
           },
           tabBarActiveTintColor: '#ffffff',
-          tabBarInactiveTintColor: '#bb86fc',
+          tabBarInactiveTintColor: 'grey',
         }}
       >
         <TopTab.Screen name="Signin" component={Signin} options={{ title: 'Sign in' }} />
@@ -58,29 +58,78 @@ const TopTabBar = () => {
 };
 
 const BottomTabBar = () => {
-
   return (
-
     <SafeAreaView style={{ flex: 1 }}>
-      <BottomTab.Navigator screenOptions={{
-        tabBarStyle: {
-          backgroundColor: '#020d17',
-          borderTopWidth: 1,
-          borderTopColor: "grey"
+      <BottomTab.Navigator
+        screenOptions={{
+          tabBarActiveTintColor: '#ffffff',
+          tabBarInactiveTintColor: 'grey',
+          tabBarStyle: {
+            backgroundColor: '#020d17',
+            borderTopWidth: 0,
+            borderTopColor: 'grey',
+          },
+          tabBarLabelStyle: {
+            fontSize: 9,
 
-        },
-      }}>
-        <BottomTab.Screen name="Home" component={Home} options={{ title: 'Home', headerShown: false }} />
-        <BottomTab.Screen name="Prime" component={Prime} options={{ title: 'Prime', headerShown: false }} />
-        <BottomTab.Screen name="Subscriptions" component={Subscriptions} options={{ title: 'Subscriptions', headerShown: false }} />
-        <BottomTab.Screen name="Downloads" component={Downloads} options={{ title: 'Downloads', headerShown: false }} />
-        <BottomTab.Screen name="Search" component={Search} options={{ title: 'Search', headerShown: false }} />
+          },
+          headerShown: false,
+        }}
+      >
+        <BottomTab.Screen
+          name="Home"
+          component={Home}
+          options={{
+            title: 'Home',
+            tabBarIcon: ({ color, size }) => (
+              <MaterialIcons name="home-filled" size={size} color={color} />
+            ),
+          }}
+        />
+        <BottomTab.Screen
+          name="Prime"
+          component={Prime}
+          options={{
+            title: 'Prime',
+            tabBarIcon: ({ color, size }) => (
+              <AntDesign name="checkcircleo" size={24} color={color} />
+            ),
+          }}
+        />
+        <BottomTab.Screen
+          name="Subscriptions"
+          component={Subscriptions}
+          options={{
+            title: 'Subscriptions',
+            tabBarIcon: ({ color, size }) => (
+              <MaterialIcons name="subscriptions" size={size} color={color} />
+            ),
+          }}
+        />
+        <BottomTab.Screen
+          name="Downloads"
+          component={Downloads}
+          options={{
+            title: 'Downloads',
+            tabBarIcon: ({ color, size }) => (
+              <AntDesign name="download" size={size} color={color} />
+            ),
+          }}
+        />
+        <BottomTab.Screen
+          name="Search"
+          component={Search}
+          options={{
+            title: 'Search',
+            tabBarIcon: ({ color, size }) => (
+              <AntDesign name="search1" size={size} color={color} />
+            ),
+          }}
+        />
       </BottomTab.Navigator>
-
     </SafeAreaView>
-  )
-
-}
+  );
+};
 
 const App = () => {
   const [isSignedIn, setIsSignedIn] = useState(false);
