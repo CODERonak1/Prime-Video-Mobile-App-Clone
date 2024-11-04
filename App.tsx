@@ -6,20 +6,27 @@ import { createMaterialTopTabNavigator } from '@react-navigation/material-top-ta
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import React, { useEffect, useState } from 'react';
-import { ActivityIndicator, View } from 'react-native'; 
-import { onAuthStateChanged } from "firebase/auth"; 
-import { auth } from './firebaseConfig'; 
+import { ActivityIndicator, View } from 'react-native';
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from './firebaseConfig';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
 
 // Screens
 import Signup from './screens/Signup';
 import Signin from './screens/Signin';
 import Home from './screens/Home';
+import Prime from './screens/Prime';
+import Search from './screens/Search';
+import Subscriptions from './screens/Subscriptions';
+import Downloads from './screens/Downloads';
 
 // Firebase configuration
 
 // Navigators
 const Stack = createNativeStackNavigator();
 const TopTab = createMaterialTopTabNavigator();
+const BottomTab = createBottomTabNavigator();
 
 // Top tab for sign in and sign up
 const TopTabBar = () => {
@@ -50,15 +57,40 @@ const TopTabBar = () => {
   );
 };
 
+const BottomTabBar = () => {
+
+  return (
+
+    <SafeAreaView style={{ flex: 1 }}>
+      <BottomTab.Navigator screenOptions={{
+        tabBarStyle: {
+          backgroundColor: '#020d17',
+          borderTopWidth: 1,
+          borderTopColor: "grey"
+
+        },
+      }}>
+        <BottomTab.Screen name="Home" component={Home} options={{ title: 'Home', headerShown: false }} />
+        <BottomTab.Screen name="Prime" component={Prime} options={{ title: 'Prime', headerShown: false }} />
+        <BottomTab.Screen name="Subscriptions" component={Subscriptions} options={{ title: 'Subscriptions', headerShown: false }} />
+        <BottomTab.Screen name="Downloads" component={Downloads} options={{ title: 'Downloads', headerShown: false }} />
+        <BottomTab.Screen name="Search" component={Search} options={{ title: 'Search', headerShown: false }} />
+      </BottomTab.Navigator>
+
+    </SafeAreaView>
+  )
+
+}
+
 const App = () => {
-  const [isSignedIn, setIsSignedIn] = useState(false); 
-  const [loading, setLoading] = useState(true); 
+  const [isSignedIn, setIsSignedIn] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
-     
-      setIsSignedIn(!!user); 
-      setLoading(false); 
+
+      setIsSignedIn(!!user);
+      setLoading(false);
     });
 
     // Cleanup subscription on unmount
@@ -81,12 +113,12 @@ const App = () => {
         <Stack.Navigator>
           {isSignedIn ? (
             <>
-              <Stack.Screen name="Home" component={Home} options={{ headerShown: false }} />
+              <Stack.Screen name="BottomTabBar" component={BottomTabBar} options={{ headerShown: false }} />
             </>
           ) : (
             <>
               <Stack.Screen name="TopTabBar" component={TopTabBar} options={{ headerShown: false }} />
-              
+
             </>
           )}
         </Stack.Navigator>
