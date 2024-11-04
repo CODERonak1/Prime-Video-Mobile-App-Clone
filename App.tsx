@@ -6,8 +6,9 @@ import { createMaterialTopTabNavigator } from '@react-navigation/material-top-ta
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import React, { useEffect, useState } from 'react';
-import { ActivityIndicator, View } from 'react-native'; // Import ActivityIndicator for loading screen
-import { onAuthStateChanged } from "firebase/auth"; // Import for handling auth state change
+import { ActivityIndicator, View } from 'react-native'; 
+import { onAuthStateChanged } from "firebase/auth"; 
+import { auth } from './firebaseConfig'; 
 
 // Screens
 import Signup from './screens/Signup';
@@ -15,7 +16,6 @@ import Signin from './screens/Signin';
 import Home from './screens/Home';
 
 // Firebase configuration
-import { auth } from './firebaseConfig'; // Ensure you have the correct path
 
 // Navigators
 const Stack = createNativeStackNavigator();
@@ -51,14 +51,14 @@ const TopTabBar = () => {
 };
 
 const App = () => {
-  const [isSignedIn, setIsSignedIn] = useState(false); // State to track sign-in status
-  const [loading, setLoading] = useState(true); // State to track loading status
+  const [isSignedIn, setIsSignedIn] = useState(false); 
+  const [loading, setLoading] = useState(true); 
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
-      // Update the sign-in state based on user status
-      setIsSignedIn(!!user); // Set to true if user exists, false otherwise
-      setLoading(false); // Set loading to false after user status is determined
+     
+      setIsSignedIn(!!user); 
+      setLoading(false); 
     });
 
     // Cleanup subscription on unmount
@@ -86,7 +86,7 @@ const App = () => {
           ) : (
             <>
               <Stack.Screen name="TopTabBar" component={TopTabBar} options={{ headerShown: false }} />
-              {/* Optionally you can add more screens for Forgot Password or others here */}
+              
             </>
           )}
         </Stack.Navigator>
