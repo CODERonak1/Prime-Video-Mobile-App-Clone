@@ -31,9 +31,9 @@ const Header = ({ heading, showButtons = true }: HeaderProps) => {
                     <FontAwesome5 name="chromecast" size={28} color="grey" />
                 </View>
 
-                <View>
+                {/* <View>
                     <FontAwesome5 name="chromecast" size={28} color="grey" />
-                </View>
+                </View> */}
             </View>
         </View>
     );

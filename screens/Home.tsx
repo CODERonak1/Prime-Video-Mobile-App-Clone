@@ -23,11 +23,11 @@ const Home = () => {
             <WatchNow/>
             <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
                 {/* <Text style={{ color: 'white', fontSize: 25 }}>Home</Text> */}
-                <Button
+                {/* <Button
                     title="Sign Out"
                     onPress={handleSignOut}
                     color="#157bcf"
-                />
+                /> */}
             </View>
         </SafeAreaView>
     );
