@@ -4,6 +4,7 @@ import React from 'react';
 import { auth } from '../firebaseConfig';
 import { signOut } from 'firebase/auth';
 import Header from '../components/Header';
+import WatchNow from '../components/WatchNow';
 
 const Home = () => {
     const handleSignOut = async () => {
@@ -19,8 +20,9 @@ const Home = () => {
     return (
         <SafeAreaView style={{ flex: 1, backgroundColor: '#020d17' }}>
             <Header heading="Home"/>
+            <WatchNow/>
             <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-                <Text style={{ color: 'white', fontSize: 25 }}>Home</Text>
+                {/* <Text style={{ color: 'white', fontSize: 25 }}>Home</Text> */}
                 <Button
                     title="Sign Out"
                     onPress={handleSignOut}
