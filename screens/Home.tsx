@@ -5,7 +5,7 @@ import { auth } from '../firebaseConfig';
 import { signOut } from 'firebase/auth';
 import Header from '../components/Header';
 import WatchNow from '../components/WatchNow';
-
+import Content from '../components/Content';
 
 const Home = () => {
     const handleSignOut = async () => {
@@ -22,6 +22,7 @@ const Home = () => {
         <SafeAreaView style={{ flex: 1, backgroundColor: '#020d17' }}>
             <Header heading="Home"/>
             <WatchNow/>
+            <Content/>
             <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
                 <Text style={{ color: 'white', fontSize: 25 }}>Home</Text> 
                  <Button
