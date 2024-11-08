@@ -20,9 +20,8 @@ const Home = () => {
 
     return (
         <SafeAreaView style={{ flex: 1, backgroundColor: '#020d17' }}>
-            <ScrollView>
-
             <Header heading="Home"/>
+            <ScrollView>
             <WatchNow/>
             <Content/>
             <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>

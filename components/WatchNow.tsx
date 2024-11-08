@@ -10,10 +10,14 @@ type WatchNowProps = {
 const Watch = ({ path }: WatchNowProps) => {
     return (
         <View style={styles.imageContainer}>
-            <Pressable onPress={() => console.log('Image pressed')}>
+            <Pressable 
+            onPress={() => console.log('Image pressed')}
+            android_ripple={{ color: '#ffffff40', borderless: false, foreground: true }}
+            >
                 <Image
                     source={path}
                     style={styles.image}
+                   
                 />
             </Pressable>
         </View>
