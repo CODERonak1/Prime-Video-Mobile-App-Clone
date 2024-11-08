@@ -5,7 +5,7 @@ const Content = () => {
     return (
         <View style={styles.content}>
             <View>
-                <Text style={styles.sectionTitle}>Amazon Original Series</Text>
+                <Text style={styles.sectionTitle}>Amazon Original Series <Text style={{ color: 'grey' }}>></Text> </Text>
 
                 <ScrollView horizontal style={styles.images}>
                     <Image
@@ -34,6 +34,37 @@ const Content = () => {
                     />
                 </ScrollView>
             </View>
+
+            <View>
+                <Text style={styles.sectionTitle}>Amazon Original Movies <Text style={{ color: 'grey' }}>></Text> </Text>
+
+                <ScrollView horizontal style={styles.images}>
+                    <Image
+                        source={require('../assets/content/Without remorse.png')}
+                        style={styles.image}
+                    />
+                    <Image
+                        source={require('../assets/content/7500.png')}
+                        style={styles.image}
+                    />
+                    <Image
+                        source={require('../assets/content/Die hart.png')}
+                        style={styles.image}
+                    />
+                    <Image
+                        source={require('../assets/content/Old knives.png')}
+                        style={styles.image}
+                    />
+                    <Image
+                        source={require('../assets/content/Wall.png')}
+                        style={styles.image}
+                    />
+                    <Image
+                        source={require('../assets/content/Aeronauts.png')}
+                        style={styles.image}
+                    />
+                </ScrollView>
+            </View>
         </View>
     )
 }
@@ -51,6 +82,8 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         marginLeft: 20,
         marginBottom: 16,
+        marginTop: 10,
+        
     },
 
     images: {
