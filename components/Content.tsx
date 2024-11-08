@@ -9,27 +9,27 @@ const Content = () => {
 
                 <ScrollView horizontal style={styles.images}>
                     <Image
-                        source={require('../assets/watchnow/Flash.png')}
+                        source={require('../assets/content/Citadel honey bunny.png')}
                         style={styles.image}
                     />
                     <Image
-                        source={require('../assets/watchnow/Rings of Power.png')}
+                        source={require('../assets/content/Alex raider.png')}
                         style={styles.image}
                     />
                     <Image
-                        source={require('../assets/watchnow/Apocalypse Z.png')}
+                        source={require('../assets/content/Boys.png')}
                         style={styles.image}
                     />
                     <Image
-                        source={require('../assets/watchnow/Like a dragon.png')}
+                        source={require('../assets/content/Citadel.png')}
                         style={styles.image}
                     />
                     <Image
-                        source={require('../assets/watchnow/Stree 2.png')}
+                        source={require('../assets/content/Jack Ryan.png')}
                         style={styles.image}
                     />
                     <Image
-                        source={require('../assets/watchnow/Trap.png')}
+                        source={require('../assets/content/Reacher.png')}
                         style={styles.image}
                     />
                 </ScrollView>
@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
 
     image: {
         borderRadius: 7,
-        height: 300,
+        height: 250,
         width: 155,
         marginLeft: 15,
     }
