@@ -1,7 +1,10 @@
 import { StyleSheet, Text, View, TextInput, Pressable } from 'react-native'
 import React, { useState } from 'react'
+import { useNavigation } from '@react-navigation/native';
 
 const Signup = () => {
+
+    const navigation = useNavigation()
 
     // setting the values
     const [email, setEmail] = useState('');
@@ -12,6 +15,12 @@ const Signup = () => {
     const [isName, setIsName] = useState(false);
     const [isEmailFocused, setIsEmailFocused] = useState(false);
     const [isPasswordFocused, setIsPasswordFocused] = useState(false);
+
+    // function for sign up
+    const handleSignup = () => {
+        navigation.navigate('Home')
+        console.log("Home is here!");
+    }
 
     return (
         // background color of the screen
@@ -68,6 +77,7 @@ const Signup = () => {
                 {/* create your account button */}
                 <Pressable style={styles.createAccBtn}
                     android_ripple={{ color: 'rgba(0, 0, 0, 0.2)' }}
+                    onPress={handleSignup}
                 >
                     <Text style={styles.createAccText}>Create your account</Text>
                 </Pressable>

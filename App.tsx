@@ -14,6 +14,10 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import Signup from './screens/Signup';
 import Signin from './screens/Signin';
 
+// main screens
+import Home from './screens/Home';
+
+
 // Navigators
 const Stack = createNativeStackNavigator();
 const Tabs = createBottomTabNavigator();
@@ -55,6 +59,7 @@ const App = () => {
         <Stack.Navigator>
           {/* Material Top Tab Bar screen */}
           <Stack.Screen name='TopTabBar' component={TopTabBar} options={{ headerShown: false }} />
+          <Stack.Screen name='Home' component={Home} options={{ headerShown: false }} />
         </Stack.Navigator>
       </SafeAreaView>
     </NavigationContainer>

@@ -1,7 +1,15 @@
 import { StyleSheet, Text, View, Image, TextInput, Pressable } from 'react-native'
 import React, { useState } from 'react'
+import { useNavigation } from '@react-navigation/native';
 
 const Signin = () => {
+
+    const navigation = useNavigation()
+
+    const handleSignin = () => {
+        navigation.navigate('Home')
+        console.log("Home is here!");
+    }
 
     // setting the values
     const [email, setEmail] = useState('');
@@ -64,6 +72,7 @@ const Signin = () => {
                 {/* continue button */}
                 <Pressable style={styles.continueBtn}
                     android_ripple={{ color: 'rgba(0, 0, 0, 0.2)' }}
+                    onPress={handleSignin}
                 >
                     <Text style={styles.continueText}>Continue</Text>
                 </Pressable>
