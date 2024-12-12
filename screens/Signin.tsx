@@ -25,26 +25,28 @@ const Signin = () => {
                     <TextInput
                         placeholder='Email or mobile number'
                         style={[styles.input, isEmailFocused && styles.inputFocused]}
-                        placeholderTextColor='black'
+                        placeholderTextColor='grey'
                         textAlign='center'
                         value={email}
                         onChangeText={(text) => setEmail(text)}
                         onFocus={() => setIsEmailFocused(true)}
                         onBlur={() => setIsEmailFocused(false)}
                         cursorColor='black'
+                        
                     />
 
                     <TextInput
                         placeholder='Password'
                         style={[styles.input, isPasswordFocused && styles.inputFocused]}
                         secureTextEntry={true}
-                        placeholderTextColor='black'
+                        placeholderTextColor='grey'
                         textAlign='center'
                         value={password}
                         onChangeText={(text) => setPassword(text)}
                         onFocus={() => setIsPasswordFocused(true)}
                         onBlur={() => setIsPasswordFocused(false)}
                         cursorColor='black'
+                        
                     />
                     <Text style={styles.forgot}>Forgot your password?</Text>
                 </View>
@@ -99,7 +101,7 @@ const styles = StyleSheet.create({
     },
 
     input: {
-        borderRadius: 10,
+        borderRadius: 40,
         borderWidth: 1,
         marginVertical: 6,
         borderColor: 'white',
