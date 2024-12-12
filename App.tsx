@@ -1,12 +1,14 @@
 // essential imports
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import { StyleSheet, View, ActivityIndicator } from 'react-native'
+import React, { useState, useEffect } from 'react'
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { onAuthStateChanged } from 'firebase/auth'; // Import Firebase Auth functions
+import { auth } from './firebaseConfig';
 
 // screens
 
@@ -48,6 +50,39 @@ const TopTabBar = () => {
 
 // main app screen
 const App = () => {
+
+  // setting the value for signed in or not
+  const [isSignedin, setIsSignedin] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
+
+  useEffect(() => {
+    setIsLoading(true)
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setIsSignedin(true)
+        console.log("user is already signed in");
+      }
+
+      else {
+        setIsSignedin(false)
+        console.log("user is not signed in");
+      }
+      setIsLoading(false)
+    })
+    return () => unsubscribe();
+  }, [])
+
+  if (isLoading) {
+    return (
+      <View style={{backgroundColor: '#04193d', height: '100%'}}>
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <ActivityIndicator size={50} color="#0678ff" />
+      </View>
+
+      </View>
+    );
+  }
+
   return (
     // navigation conatainer for all the navigation
     <NavigationContainer>
@@ -55,11 +90,15 @@ const App = () => {
       <SafeAreaView style={{ flex: 1 }}>
         {/* status bar for all the screens applied */}
         <StatusBar style="light" backgroundColor='#04193d' />
-        {/* stack navigations for all the screens */}
+        {/* stack navigations for all the screens and conditinal rendering based on auth state*/}
         <Stack.Navigator>
-          {/* Material Top Tab Bar screen */}
-          <Stack.Screen name='TopTabBar' component={TopTabBar} options={{ headerShown: false }} />
-          <Stack.Screen name='Home' component={Home} options={{ headerShown: false }} />
+          {isSignedin ? (
+            <Stack.Screen name='Home' component={Home} options={{ headerShown: false }} />
+          )
+            : (
+              <Stack.Screen name="TopTabBar" component={TopTabBar} options={{ headerShown: false }} />
+            )}
+
         </Stack.Navigator>
       </SafeAreaView>
     </NavigationContainer>
@@ -69,3 +108,4 @@ const App = () => {
 export default App
 
 const styles = StyleSheet.create({})
+
