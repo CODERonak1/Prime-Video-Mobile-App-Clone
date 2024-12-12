@@ -19,7 +19,6 @@ const Home = () => {
                         .catch((error) => {
                             console.log('Error signing out:', error);
                         });
-                    navigation.navigate('TopTabBar')
                 }}
             />
         </View>

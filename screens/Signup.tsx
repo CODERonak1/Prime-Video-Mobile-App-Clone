@@ -28,7 +28,6 @@ const Signup = () => {
 
             // Navigate to Home screen after successful signup
             console.log('User created');
-            navigation.navigate('Home');
         } catch (error: any) {
             let errorMessage = 'Something went wrong. Please try again.';
             if (error.code === 'auth/email-already-in-use') {

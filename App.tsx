@@ -74,10 +74,10 @@ const App = () => {
 
   if (isLoading) {
     return (
-      <View style={{backgroundColor: '#04193d', height: '100%'}}>
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <ActivityIndicator size={50} color="#0678ff" />
-      </View>
+      <View style={{ backgroundColor: '#04193d', height: '100%' }}>
+        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+          <ActivityIndicator size={50} color="#0678ff" />
+        </View>
 
       </View>
     );
