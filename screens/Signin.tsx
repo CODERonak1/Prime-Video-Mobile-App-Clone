@@ -1,6 +1,8 @@
 import { StyleSheet, Text, View, Image, TextInput, Pressable } from 'react-native'
 import React, { useState } from 'react'
 import { useNavigation } from '@react-navigation/native';
+import { auth } from '../firebaseConfig'
+import { signInWithEmailAndPassword } from 'firebase/auth';
 
 const Signin = () => {
 
@@ -8,9 +10,18 @@ const Signin = () => {
     const navigation = useNavigation()
 
     // function for sign in
-    const handleSignin = () => {
-        navigation.navigate('Home')
-        console.log("Home is here!");
+    const handleSignin = async () => {
+
+        try {
+            const userCredential = await signInWithEmailAndPassword(auth, email, password);
+            const user = userCredential.user;
+            
+            navigation.navigate('Home')
+            console.log("Sign in done");
+        } catch (error) {
+            console.log('Nothing just error');
+
+        }
     }
 
     // setting the values

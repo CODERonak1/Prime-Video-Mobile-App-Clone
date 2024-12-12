@@ -1,6 +1,8 @@
 import { StyleSheet, Text, View, TextInput, Pressable } from 'react-native'
 import React, { useState } from 'react'
 import { useNavigation } from '@react-navigation/native';
+import { auth } from '../firebaseConfig'
+import { createUserWithEmailAndPassword } from 'firebase/auth';
 
 const Signup = () => {
 
@@ -13,15 +15,31 @@ const Signup = () => {
     // const [name, setName] = useState('');
 
     // when focused on the input
-    const [isName, setIsName] = useState(false);
+    // const [isName, setIsName] = useState(false);
     const [isEmailFocused, setIsEmailFocused] = useState(false);
     const [isPasswordFocused, setIsPasswordFocused] = useState(false);
 
     // function for sign up
-    const handleSignup = () => {
-        navigation.navigate('Home')
-        console.log("Home is here!");
-    }
+    const handleSignup = async () => {
+        try {
+            // Create user with email and password using Firebase Auth
+            const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+            const user = userCredential.user;
+
+            // Navigate to Home screen after successful signup
+            console.log('User created');
+            navigation.navigate('Home');
+        } catch (error: any) {
+            let errorMessage = 'Something went wrong. Please try again.';
+            if (error.code === 'auth/email-already-in-use') {
+                errorMessage = 'This email is already in use.';
+            } else if (error.code === 'auth/weak-password') {
+                errorMessage = 'Password should be at least 6 characters.';
+            } else if (error.code === 'auth/invalid-email') {
+                errorMessage = 'Please enter a valid email.';
+            }
+        }
+    };
 
     return (
         // background color of the screen
