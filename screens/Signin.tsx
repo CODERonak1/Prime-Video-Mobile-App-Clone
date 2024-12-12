@@ -5,6 +5,8 @@ const Signin = () => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [isEmailFocused, setIsEmailFocused] = useState(false);
+    const [isPasswordFocused, setIsPasswordFocused] = useState(false);
 
     return (
         <View style={styles.background}>
@@ -21,25 +23,28 @@ const Signin = () => {
 
                 <View style={styles.inputs}>
                     <TextInput
-                        placeholder='Email or mobile phone number'
-                        style={styles.input}
-                        placeholderTextColor='white'
+                        placeholder='Email or mobile number'
+                        style={[styles.input, isEmailFocused && styles.inputFocused]}
+                        placeholderTextColor='black'
                         textAlign='center'
                         value={email}
                         onChangeText={(text) => setEmail(text)}
-
+                        onFocus={() => setIsEmailFocused(true)}
+                        onBlur={() => setIsEmailFocused(false)}
+                        cursorColor='black'
                     />
 
                     <TextInput
                         placeholder='Password'
-                        style={styles.input}
+                        style={[styles.input, isPasswordFocused && styles.inputFocused]}
                         secureTextEntry={true}
-                        placeholderTextColor='white'
+                        placeholderTextColor='black'
                         textAlign='center'
                         value={password}
                         onChangeText={(text) => setPassword(text)}
-
-
+                        onFocus={() => setIsPasswordFocused(true)}
+                        onBlur={() => setIsPasswordFocused(false)}
+                        cursorColor='black'
                     />
                     <Text style={styles.forgot}>Forgot your password?</Text>
                 </View>
@@ -50,6 +55,10 @@ const Signin = () => {
                     <Text style={styles.continueText}>Continue</Text>
                 </Pressable>
 
+                {/* <View>
+                   
+                </View> */}
+
             </View>
         </View>
     )
@@ -58,11 +67,11 @@ const Signin = () => {
 export default Signin
 
 const styles = StyleSheet.create({
+    // backgroud of the screen
     background: {
         height: '100%',
         backgroundColor: '#04193d'
     },
-
     container: {
         flex: 1,
         alignItems: 'center'
@@ -90,14 +99,23 @@ const styles = StyleSheet.create({
     },
 
     input: {
-        borderRadius: 50,
+        borderRadius: 10,
         borderWidth: 1,
         marginVertical: 6,
         borderColor: 'white',
-        paddingVertical: 20,
+        paddingVertical: 15,
         marginTop: 15,
         fontSize: 18,
-        color: 'white'
+        // color: 'white'
+        color: 'black',
+        backgroundColor: 'white',
+        fontWeight: 'bold',
+      
+    },
+
+    inputFocused: {
+        borderColor: '#0678ff',
+        borderWidth: 3
     },
 
     forgot: {
