@@ -4,12 +4,13 @@ import { useNavigation } from '@react-navigation/native';
 
 const Signup = () => {
 
+    // useNvaigtion hook for navigating to other screen
     const navigation = useNavigation()
 
     // setting the values
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [name, setName] = useState('');
+    // const [name, setName] = useState('');
 
     // when focused on the input
     const [isName, setIsName] = useState(false);
@@ -34,7 +35,7 @@ const Signup = () => {
                 {/* input container */}
                 <View style={styles.inputs}>
                     {/* Text input for name */}
-                    <TextInput
+                    {/* <TextInput
                         placeholder='Your name'
                         style={[styles.input, isName && styles.inputFocused]}
                         placeholderTextColor='grey'
@@ -44,7 +45,7 @@ const Signup = () => {
                         onFocus={() => setIsName(true)}
                         onBlur={() => setIsName(false)}
                         cursorColor='black'
-                    />
+                    /> */}
 
                     {/* Text input for email or phone number */}
                     <TextInput

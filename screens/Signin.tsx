@@ -4,8 +4,10 @@ import { useNavigation } from '@react-navigation/native';
 
 const Signin = () => {
 
+    // useNvaigtion hook for navigating to other screen
     const navigation = useNavigation()
 
+    // function for sign in
     const handleSignin = () => {
         navigation.navigate('Home')
         console.log("Home is here!");
