@@ -3,25 +3,34 @@ import React, { useState } from 'react'
 
 const Signin = () => {
 
+    // setting the values
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+
+    // when focused on the input
     const [isEmailFocused, setIsEmailFocused] = useState(false);
     const [isPasswordFocused, setIsPasswordFocused] = useState(false);
 
     return (
+        // background color of the screen
         <View style={styles.background}>
+            {/* container for everything shown to the screen */}
             <View style={styles.container}>
+                {/* prime video image */}
                 <Image
                     source={require('../assets/splash-icon.png')}
                     style={styles.image}
                 />
 
+                {/* sign in with your account text */}
                 <View style={styles.signinText}>
                     <Text style={styles.text}>Sign in with your</Text>
                     <Text style={styles.text}>Amazon account</Text>
                 </View>
 
+                {/* input container */}
                 <View style={styles.inputs}>
+                    {/* Text input for email or phone number */}
                     <TextInput
                         placeholder='Email or mobile number'
                         style={[styles.input, isEmailFocused && styles.inputFocused]}
@@ -32,9 +41,10 @@ const Signin = () => {
                         onFocus={() => setIsEmailFocused(true)}
                         onBlur={() => setIsEmailFocused(false)}
                         cursorColor='black'
-                        
+
                     />
 
+                    {/* textinput for password */}
                     <TextInput
                         placeholder='Password'
                         style={[styles.input, isPasswordFocused && styles.inputFocused]}
@@ -46,11 +56,12 @@ const Signin = () => {
                         onFocus={() => setIsPasswordFocused(true)}
                         onBlur={() => setIsPasswordFocused(false)}
                         cursorColor='black'
-                        
+
                     />
                     <Text style={styles.forgot}>Forgot your password?</Text>
                 </View>
 
+                {/* continue button */}
                 <Pressable style={styles.continueBtn}
                     android_ripple={{ color: 'rgba(0, 0, 0, 0.2)' }}
                 >
@@ -112,7 +123,7 @@ const styles = StyleSheet.create({
         color: 'black',
         backgroundColor: 'white',
         fontWeight: 'bold',
-      
+
     },
 
     inputFocused: {

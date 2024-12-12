@@ -3,20 +3,28 @@ import React, { useState } from 'react'
 
 const Signup = () => {
 
+    // setting the values
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [name, setName] = useState('');
+
+    // when focused on the input
     const [isName, setIsName] = useState(false);
     const [isEmailFocused, setIsEmailFocused] = useState(false);
     const [isPasswordFocused, setIsPasswordFocused] = useState(false);
 
     return (
+        // background color of the screen
         <View style={styles.background}>
+            {/* container for everything shown to the screen */}
             <View style={styles.container}>
+                {/* create your account text */}
                 <View style={styles.signupText}>
                     <Text style={styles.text}>Create your account</Text>
                 </View>
+                {/* input container */}
                 <View style={styles.inputs}>
+                    {/* Text input for name */}
                     <TextInput
                         placeholder='Your name'
                         style={[styles.input, isName && styles.inputFocused]}
@@ -29,6 +37,7 @@ const Signup = () => {
                         cursorColor='black'
                     />
 
+                    {/* Text input for email or phone number */}
                     <TextInput
                         placeholder='Email or mobile number'
                         style={[styles.input, isEmailFocused && styles.inputFocused]}
@@ -41,6 +50,7 @@ const Signup = () => {
                         cursorColor='black'
                     />
 
+                    {/* textinput for password */}
                     <TextInput
                         placeholder='Password'
                         style={[styles.input, isPasswordFocused && styles.inputFocused]}
@@ -55,11 +65,16 @@ const Signup = () => {
                     />
                 </View>
 
+                {/* create your account button */}
                 <Pressable style={styles.createAccBtn}
                     android_ripple={{ color: 'rgba(0, 0, 0, 0.2)' }}
                 >
                     <Text style={styles.createAccText}>Create your account</Text>
                 </Pressable>
+                {/* 
+                <View>
+
+                </View> */}
             </View>
         </View>
     )

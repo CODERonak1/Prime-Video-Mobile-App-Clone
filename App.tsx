@@ -19,8 +19,10 @@ const Stack = createNativeStackNavigator();
 const Tabs = createBottomTabNavigator();
 const MaterialTopTab = createMaterialTopTabNavigator();
 
+// Material top tab navigation screen
 const TopTabBar = () => {
   return (
+    // navigator style
     <MaterialTopTab.Navigator screenOptions={{
       tabBarStyle: {
         backgroundColor: '#04193d'
@@ -32,18 +34,26 @@ const TopTabBar = () => {
         fontWeight: 'bold'
       }
     }}>
+      {/* sign in screen */}
       <MaterialTopTab.Screen name='Signin' component={Signin} options={{ title: 'SIGN IN' }} />
+      {/* sign up screen */}
       <MaterialTopTab.Screen name='Signup' component={Signup} options={{ title: 'SIGN UP' }} />
     </MaterialTopTab.Navigator>
   )
 }
 
+// main app screen
 const App = () => {
   return (
+    // navigation conatainer for all the navigation
     <NavigationContainer>
+      {/* safe area view for all the screens applied */}
       <SafeAreaView style={{ flex: 1 }}>
+        {/* status bar for all the screens applied */}
         <StatusBar style="light" backgroundColor='#04193d' />
+        {/* stack navigations for all the screens */}
         <Stack.Navigator>
+          {/* Material Top Tab Bar screen */}
           <Stack.Screen name='TopTabBar' component={TopTabBar} options={{ headerShown: false }} />
         </Stack.Navigator>
       </SafeAreaView>
