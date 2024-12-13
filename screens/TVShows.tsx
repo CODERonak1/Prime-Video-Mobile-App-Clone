@@ -1,14 +1,14 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
-const Subscriptions = () => {
+const TVShows = () => {
   return (
     <View>
-      <Text>Subscriptions</Text>
+      <Text>TV Shows</Text>
     </View>
   )
 }
 
-export default Subscriptions
+export default TVShows
 
 const styles = StyleSheet.create({})

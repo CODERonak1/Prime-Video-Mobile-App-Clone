@@ -1,14 +1,14 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
-const Prime = () => {
+const Movies = () => {
   return (
     <View>
-      <Text>Prime</Text>
+      <Text>Movies</Text>
     </View>
   )
 }
 
-export default Prime
+export default Movies
 
 const styles = StyleSheet.create({})

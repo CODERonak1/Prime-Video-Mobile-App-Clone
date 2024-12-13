@@ -7,12 +7,15 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { onAuthStateChanged } from 'firebase/auth'; // Import Firebase Auth functions
+import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from './firebaseConfig';
 
 // icons
 import Ionicons from '@expo/vector-icons/Ionicons';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
+
+// components
+import Loading from './components/Loading';
 
 // screens
 
@@ -58,6 +61,7 @@ const TopTabBar = () => {
 // bottom tab navigation screens
 const BottomTabBar = () => {
   return (
+    // Bottom tab bar global styles
     <BottomTabs.Navigator
       screenOptions={{
         headerShown: false,
@@ -71,30 +75,38 @@ const BottomTabBar = () => {
 
         tabBarLabelStyle: {
           fontWeight: 'bold'
-        }
+        },
       }}
     >
+      {/* home */}
       <BottomTabs.Screen name='Home' component={Home} options={{
         tabBarIcon: ({ focused, size, color }) => <Ionicons name={focused ? 'home-sharp' : 'home-outline'}
           size={size} color={color} />
-
       }} />
+
+      {/* movies */}
       <BottomTabs.Screen name='Movies' component={Movies} options={{
         tabBarIcon: ({ focused, size, color }) => <MaterialCommunityIcons name={focused ? 'movie-open' : 'movie-open-outline'}
           size={size} color={color} />
       }} />
+      {/* tv shows */}
       <BottomTabs.Screen name='TV Shows' component={TVShows} options={{
         tabBarIcon: ({ focused, size, color }) => <Ionicons name={focused ? 'tv' : 'tv-outline'}
           size={size} color={color} />
       }} />
+
+      {/* downloads */}
       <BottomTabs.Screen name='Downloads' component={Downloads} options={{
         tabBarIcon: ({ focused, size, color }) => <Ionicons name={focused ? 'download' : 'download-outline'}
           size={size} color={color} />
       }} />
+
+      {/* search */}
       <BottomTabs.Screen name='Search' component={Search} options={{
         tabBarIcon: ({ focused, size, color }) => <Ionicons name={focused ? 'search-sharp' : 'search-outline'}
           size={size} color={color} />
       }} />
+
     </BottomTabs.Navigator>
   )
 }
@@ -107,31 +119,31 @@ const App = () => {
   const [isLoading, setIsLoading] = useState(false)
 
   useEffect(() => {
+    // sets loading true
     setIsLoading(true)
+
+    // checks the auth state weather the user is already signed in or not
     const unsubscribe = onAuthStateChanged(auth, (user) => {
+      // if user is signed
       if (user) {
         setIsSignedin(true)
         console.log("user is already signed in");
       }
 
+      // if user not signed
       else {
         setIsSignedin(false)
         console.log("user is not signed in");
       }
+      // sets loading false
       setIsLoading(false)
     })
     return () => unsubscribe();
   }, [])
 
+  // for loading the component
   if (isLoading) {
-    return (
-      <View style={{ backgroundColor: '#04193d', height: '100%' }}>
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-          <ActivityIndicator size={50} color="#0678ff" />
-        </View>
-
-      </View>
-    );
+    <Loading />
   }
 
   return (
