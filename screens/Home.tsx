@@ -8,8 +8,8 @@ const Home = () => {
     // const navigation = useNavigation()
     return (
         <View style={styles.background}>
-            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                <Text style={{ color: 'white', fontSize: 40 }}>Home</Text>
+            <View style={styles.container}>
+                <Text style={styles.text}>Home</Text>
                 <Button
                     title='Log out'
                     onPress={() => {
@@ -33,5 +33,16 @@ const styles = StyleSheet.create({
     background: {
         backgroundColor: '#001027',
         height: '100%',
+    },
+
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+
+    text: {
+        color: 'white',
+        fontSize: 40
     }
 })

@@ -3,12 +3,30 @@ import React from 'react'
 
 const Downloads = () => {
   return (
-    <View>
-      <Text>Downloads</Text>
+    <View style={styles.background}>
+      <View style={styles.container}>
+        <Text style={styles.text}>Downloads</Text>
+      </View>
     </View>
   )
 }
 
 export default Downloads
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  background: {
+    backgroundColor: '#001027',
+    height: '100%',
+  },
+
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+
+  text: {
+    color: 'white',
+    fontSize: 40
+  }
+})
