@@ -10,6 +10,10 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { onAuthStateChanged } from 'firebase/auth'; // Import Firebase Auth functions
 import { auth } from './firebaseConfig';
 
+// icons
+import Ionicons from '@expo/vector-icons/Ionicons';
+import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
+
 // screens
 
 // auth screens
@@ -18,8 +22,8 @@ import Signin from './screens/Signin';
 
 // main screens
 import Home from './screens/Home';
-import Prime from './screens/Prime';
-import Subscriptions from './screens/Subscriptions';
+import Movies from './screens/Movies';
+import TVShows from './screens/TVShows';
 import Downloads from './screens/Downloads';
 import Search from './screens/Search';
 
@@ -54,12 +58,43 @@ const TopTabBar = () => {
 // bottom tab navigation screens
 const BottomTabBar = () => {
   return (
-    <BottomTabs.Navigator>
-      <BottomTabs.Screen name='Home' component={Home} />
-      <BottomTabs.Screen name='Prime' component={Prime} />
-      <BottomTabs.Screen name='Subscriptions' component={Subscriptions} />
-      <BottomTabs.Screen name='Downloads' component={Downloads} />
-      <BottomTabs.Screen name='Search' component={Search} />
+    <BottomTabs.Navigator
+      screenOptions={{
+        headerShown: false,
+        tabBarActiveTintColor: 'white',
+        tabBarInactiveTintColor: 'grey',
+        tabBarStyle: {
+          backgroundColor: '#001027',
+          borderTopWidth: 2,
+          height: 60,
+        },
+
+        tabBarLabelStyle: {
+          fontWeight: 'bold'
+        }
+      }}
+    >
+      <BottomTabs.Screen name='Home' component={Home} options={{
+        tabBarIcon: ({ focused, size, color }) => <Ionicons name={focused ? 'home-sharp' : 'home-outline'}
+          size={size} color={color} />
+
+      }} />
+      <BottomTabs.Screen name='Movies' component={Movies} options={{
+        tabBarIcon: ({ focused, size, color }) => <MaterialCommunityIcons name={focused ? 'movie-open' : 'movie-open-outline'}
+          size={size} color={color} />
+      }} />
+      <BottomTabs.Screen name='TV Shows' component={TVShows} options={{
+        tabBarIcon: ({ focused, size, color }) => <Ionicons name={focused ? 'tv' : 'tv-outline'}
+          size={size} color={color} />
+      }} />
+      <BottomTabs.Screen name='Downloads' component={Downloads} options={{
+        tabBarIcon: ({ focused, size, color }) => <Ionicons name={focused ? 'download' : 'download-outline'}
+          size={size} color={color} />
+      }} />
+      <BottomTabs.Screen name='Search' component={Search} options={{
+        tabBarIcon: ({ focused, size, color }) => <Ionicons name={focused ? 'search-sharp' : 'search-outline'}
+          size={size} color={color} />
+      }} />
     </BottomTabs.Navigator>
   )
 }
@@ -109,10 +144,12 @@ const App = () => {
         {/* stack navigations for all the screens and conditinal rendering based on auth state*/}
         <Stack.Navigator>
           {isSignedin ? (
-            <Stack.Screen name='BottomTabBar' component={BottomTabBar} options={{ headerShown: false }} />
+            // Bottom Tab Bar for main screens
+            <Stack.Screen name='MainScreen' component={BottomTabBar} options={{ headerShown: false }} />
           )
             : (
-              <Stack.Screen name="TopTabBar" component={TopTabBar} options={{ headerShown: false }} />
+              // Top bar for auth 
+              <Stack.Screen name="AuthScreen" component={TopTabBar} options={{ headerShown: false }} />
             )}
 
         </Stack.Navigator>
@@ -124,4 +161,3 @@ const App = () => {
 export default App
 
 const styles = StyleSheet.create({})
-
