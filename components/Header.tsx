@@ -4,26 +4,26 @@ import AntDesign from '@expo/vector-icons/AntDesign';
 
 const Header = () => {
     return (
+        // Header container
         <View style={styles.headerContainer}>
-
+            {/* image container */}
             <View style={styles.imageContainer}>
+                {/* prime video logo image in white color */}
                 <Image
                     source={require('../assets/white-prime.png')}
                     style={styles.image}
                 />
             </View>
 
-
-            <View style={styles.icons}>
-                <Pressable style={styles.profileBtn} android_ripple={{ color: '#ffffff20' }}>
+            <View>
+                {/* profile icon */}
+                <Pressable android_ripple={{ color: '#ffffff20' }}>
                     <Image
                         source={require('../assets/profile.png')}
                         style={styles.profileImg}
                     />
                 </Pressable>
             </View>
-
-
         </View>
     )
 }
@@ -48,14 +48,6 @@ const styles = StyleSheet.create({
         width: 100,
         position: 'absolute',
         top: -150,
-    },
-
-    icons: {
-
-    },
-
-    profileBtn: {
-
     },
 
     profileImg: {
