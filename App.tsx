@@ -18,7 +18,10 @@ import Signin from './screens/Signin';
 
 // main screens
 import Home from './screens/Home';
-
+import Prime from './screens/Prime';
+import Subscriptions from './screens/Subscriptions';
+import Downloads from './screens/Downloads';
+import Search from './screens/Search';
 
 // Navigators
 const Stack = createNativeStackNavigator();
@@ -53,6 +56,10 @@ const BottomTabBar = () => {
   return (
     <BottomTabs.Navigator>
       <BottomTabs.Screen name='Home' component={Home} />
+      <BottomTabs.Screen name='Prime' component={Prime} />
+      <BottomTabs.Screen name='Subscriptions' component={Subscriptions} />
+      <BottomTabs.Screen name='Downloads' component={Downloads} />
+      <BottomTabs.Screen name='Search' component={Search} />
     </BottomTabs.Navigator>
   )
 }
