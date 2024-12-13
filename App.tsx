@@ -143,7 +143,7 @@ const App = () => {
 
   // for loading the component
   if (isLoading) {
-    <Loading />
+    return <Loading />
   }
 
   return (

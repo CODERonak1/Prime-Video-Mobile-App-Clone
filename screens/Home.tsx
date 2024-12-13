@@ -1,16 +1,20 @@
 import { StyleSheet, Text, View, Button } from 'react-native'
 import React from 'react'
+import Header from '../components/Header'
 // import { useNavigation } from '@react-navigation/native';
-import { auth } from '../firebaseConfig'
-import { signOut } from 'firebase/auth'
+// import { auth } from '../firebaseConfig'
+// import { signOut } from 'firebase/auth'
 
 const Home = () => {
     // const navigation = useNavigation()
     return (
         <View style={styles.background}>
             <View style={styles.container}>
-                <Text style={styles.text}>Home</Text>
-                <Button
+
+                <Header />
+
+                {/* <Text style={styles.text}>Home</Text> */}
+                {/* <Button
                     title='Log out'
                     onPress={() => {
                         signOut(auth)
@@ -21,7 +25,7 @@ const Home = () => {
                                 console.log('Error signing out:', error);
                             });
                     }}
-                />
+                /> */}
             </View>
         </View>
     )
@@ -37,8 +41,6 @@ const styles = StyleSheet.create({
 
     container: {
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center'
     },
 
     text: {
