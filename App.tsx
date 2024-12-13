@@ -29,6 +29,7 @@ import Movies from './screens/Movies';
 import TVShows from './screens/TVShows';
 import Downloads from './screens/Downloads';
 import Search from './screens/Search';
+import New from './screens/NewAndHot';
 
 // Navigators
 const Stack = createNativeStackNavigator();
@@ -39,21 +40,28 @@ const MaterialTopTab = createMaterialTopTabNavigator();
 const TopTabBar = () => {
   return (
     // navigator style
-    <MaterialTopTab.Navigator screenOptions={{
-      tabBarStyle: {
-        backgroundColor: '#04193d'
-      },
+    <MaterialTopTab.Navigator
+      screenOptions={{
+        tabBarStyle: {
+          backgroundColor: '#04193d'
+        },
 
-      tabBarLabelStyle: {
-        color: 'white',
-        fontSize: 18,
-        fontWeight: 'bold'
-      }
-    }}>
+        tabBarLabelStyle: {
+          color: 'white',
+          fontSize: 18,
+          fontWeight: 'bold'
+        }
+      }}>
       {/* sign in screen */}
-      <MaterialTopTab.Screen name='Signin' component={Signin} options={{ title: 'SIGN IN' }} />
+      <MaterialTopTab.Screen
+        name='Signin'
+        component={Signin}
+        options={{ title: 'SIGN IN' }} />
       {/* sign up screen */}
-      <MaterialTopTab.Screen name='Signup' component={Signup} options={{ title: 'SIGN UP' }} />
+      <MaterialTopTab.Screen
+        name='Signup'
+        component={Signup}
+        options={{ title: 'SIGN UP' }} />
     </MaterialTopTab.Navigator>
   )
 }
@@ -72,41 +80,51 @@ const BottomTabBar = () => {
           borderTopWidth: 2,
           height: 60,
         },
-
-        tabBarLabelStyle: {
-          fontWeight: 'bold'
-        },
       }}
     >
       {/* home */}
-      <BottomTabs.Screen name='Home' component={Home} options={{
-        tabBarIcon: ({ focused, size, color }) => <Ionicons name={focused ? 'home-sharp' : 'home-outline'}
-          size={size} color={color} />
-      }} />
+      <BottomTabs.Screen
+        name='Home'
+        component={Home}
+        options={{
+          tabBarIcon: ({ focused, size, color }) => <Ionicons name={focused ? 'home-sharp' : 'home-outline'}
+            size={size} color={color} />
+        }} />
 
       {/* movies */}
-      <BottomTabs.Screen name='Movies' component={Movies} options={{
-        tabBarIcon: ({ focused, size, color }) => <MaterialCommunityIcons name={focused ? 'movie-open' : 'movie-open-outline'}
-          size={size} color={color} />
-      }} />
+      <BottomTabs.Screen
+        name='Movies'
+        component={Movies}
+        options={{
+          tabBarIcon: ({ focused, size, color }) => <MaterialCommunityIcons name={focused ? 'movie-open' : 'movie-open-outline'}
+            size={size} color={color} />
+        }} />
       {/* tv shows */}
-      <BottomTabs.Screen name='TV Shows' component={TVShows} options={{
-        tabBarIcon: ({ focused, size, color }) => <Ionicons name={focused ? 'tv' : 'tv-outline'}
-          size={size} color={color} />
-      }} />
+      <BottomTabs.Screen
+        name='TV Shows'
+        component={TVShows}
+        options={{
+          tabBarIcon: ({ focused, size, color }) => <Ionicons name={focused ? 'tv' : 'tv-outline'}
+            size={size} color={color} />
+        }} />
+
+      {/* new screen forshowing whats new the prime video */}
+      <BottomTabs.Screen
+        name='New & Hot'
+        component={New}
+        options={{
+          tabBarIcon: ({ focused, size, color }) => <MaterialCommunityIcons name={focused ? 'play-box-multiple' : 'play-box-multiple-outline'}
+            size={size} color={color} />
+        }} />
 
       {/* downloads */}
-      <BottomTabs.Screen name='Downloads' component={Downloads} options={{
-        tabBarIcon: ({ focused, size, color }) => <Ionicons name={focused ? 'download' : 'download-outline'}
-          size={size} color={color} />
-      }} />
-
-      {/* search */}
-      <BottomTabs.Screen name='Search' component={Search} options={{
-        tabBarIcon: ({ focused, size, color }) => <Ionicons name={focused ? 'search-sharp' : 'search-outline'}
-          size={size} color={color} />
-      }} />
-
+      <BottomTabs.Screen
+        name='Downloads'
+        component={Downloads}
+        options={{
+          tabBarIcon: ({ focused, size, color }) => <Ionicons name={focused ? 'download' : 'download-outline'}
+            size={size} color={color} />
+        }} />
     </BottomTabs.Navigator>
   )
 }
@@ -157,13 +175,23 @@ const App = () => {
         <Stack.Navigator>
           {isSignedin ? (
             // Bottom Tab Bar for main screens
-            <Stack.Screen name='MainScreen' component={BottomTabBar} options={{ headerShown: false }} />
+            <Stack.Screen
+              name='MainScreen'
+              component={BottomTabBar}
+              options={{ headerShown: false }} />
           )
             : (
               // Top bar for auth 
-              <Stack.Screen name="AuthScreen" component={TopTabBar} options={{ headerShown: false }} />
+              <Stack.Screen
+                name="AuthScreen"
+                component={TopTabBar}
+                options={{ headerShown: false }} />
             )}
 
+          <Stack.Screen
+            name='Search'
+            component={Search}
+            options={{ headerShown: false }} />
         </Stack.Navigator>
       </SafeAreaView>
     </NavigationContainer>
