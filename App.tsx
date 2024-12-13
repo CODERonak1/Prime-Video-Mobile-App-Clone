@@ -22,7 +22,7 @@ import Home from './screens/Home';
 
 // Navigators
 const Stack = createNativeStackNavigator();
-const Tabs = createBottomTabNavigator();
+const BottomTabs = createBottomTabNavigator();
 const MaterialTopTab = createMaterialTopTabNavigator();
 
 // Material top tab navigation screen
@@ -45,6 +45,15 @@ const TopTabBar = () => {
       {/* sign up screen */}
       <MaterialTopTab.Screen name='Signup' component={Signup} options={{ title: 'SIGN UP' }} />
     </MaterialTopTab.Navigator>
+  )
+}
+
+// bottom tab navigation screens
+const BottomTabBar = () => {
+  return (
+    <BottomTabs.Navigator>
+      <BottomTabs.Screen name='Home' component={Home} />
+    </BottomTabs.Navigator>
   )
 }
 
@@ -93,7 +102,7 @@ const App = () => {
         {/* stack navigations for all the screens and conditinal rendering based on auth state*/}
         <Stack.Navigator>
           {isSignedin ? (
-            <Stack.Screen name='Home' component={Home} options={{ headerShown: false }} />
+            <Stack.Screen name='BottomTabBar' component={BottomTabBar} options={{ headerShown: false }} />
           )
             : (
               <Stack.Screen name="TopTabBar" component={TopTabBar} options={{ headerShown: false }} />
