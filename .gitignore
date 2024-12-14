@@ -34,4 +34,12 @@ yarn-error.*
 
 # typescript
 *.tsbuildinfo
+
+# firebase
 firebaseConfig.ts
+
+#supabase
+supabaseClient.ts
+
+# Data
+MovieData.ts
