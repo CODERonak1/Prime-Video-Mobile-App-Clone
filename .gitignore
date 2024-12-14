@@ -42,4 +42,4 @@ firebaseConfig.ts
 supabaseClient.ts
 
 # Data
-MovieData.ts
+WatchNowMovieData.ts
