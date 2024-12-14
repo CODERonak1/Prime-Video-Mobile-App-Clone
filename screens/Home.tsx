@@ -1,9 +1,12 @@
 import { StyleSheet, Text, View, Button } from 'react-native'
 import React from 'react'
-import Header from '../components/Header'
 // import { useNavigation } from '@react-navigation/native';
 // import { auth } from '../firebaseConfig'
 // import { signOut } from 'firebase/auth'
+
+// components
+import Header from '../components/Header'
+import WatchNow from '../components/WatchNow'
 
 const Home = () => {
     // const navigation = useNavigation()
@@ -12,7 +15,7 @@ const Home = () => {
             <View style={styles.container}>
 
                 <Header />
-
+                <WatchNow />
                 {/* <Text style={styles.text}>Home</Text> */}
                 {/* <Button
                     title='Log out'
