@@ -15,14 +15,14 @@ const Header = () => {
                 {/* prime video logo image in white color */}
                 <Image
                     source={require('../assets/white-prime.png')}
-                    style={styles.image}
+                    style={styles.primeVideoImage}
                 />
             </View>
-
-            <Pressable style={styles.searchBtn} onPress={() => navigation.navigate('Search')}>
-                <Ionicons name="search" size={26} color="white" />
-            </Pressable>
             <View style={styles.btns}>
+
+                <Pressable style={styles.searchBtn} onPress={() => navigation.navigate('Search')}>
+                    <Ionicons name="search" size={26} color="white" />
+                </Pressable>
 
                 {/* Search icon */}
 
@@ -43,44 +43,52 @@ export default Header
 const styles = StyleSheet.create({
     headerContainer: {
         justifyContent: 'space-between',
+        alignItems: 'center',
         flexDirection: 'row',
     },
 
     imageContainer: {
-        marginLeft: 20,
-        width: '26%',
+        marginRight: 0,
+        width: '40%',
+        // borderWidth: 1,
+        borderColor: 'white',
+        height: 50,
+        justifyContent: 'flex-start',
 
     },
 
-    image: {
-        height: 350,
+    primeVideoImage: {
+        height: 60,
         // borderWidth: 1,
-        width: 100,
-        position: 'absolute',
-        top: -150,
+        width: 120,
+        borderColor: 'white',
     },
 
     profileImg: {
-        height: 100,
-        width: 40,
-        top: -26,
-        // right: -20,
+        height: 40,
+        width: 50,
         // borderWidth: 1,
-        marginRight: 50
+        borderColor: 'white',
     },
 
     searchBtn: {
         marginTop: 9,
-        marginLeft: 160
+        marginRight: 10
     },
 
     btns: {
+        // borderWidth: 1,
+        borderColor: 'white',
         flexDirection: 'row',
+        justifyContent: 'center',
+        width: '20%',
+        height: 50,
     },
 
     profileBtn: {
         // borderWidth: 1,
         width: 40,
         marginRight: 20,
+        marginTop: 4
     }
 })
