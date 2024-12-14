@@ -1,5 +1,5 @@
 // essential imports
-import { StyleSheet, View, ActivityIndicator } from 'react-native'
+// import { StyleSheet, View, ActivityIndicator } from 'react-native'
 import React, { useState, useEffect } from 'react'
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -33,6 +33,7 @@ import Search from './screens/Search';
 // screens
 import New from './screens/NewAndHot';
 import Profile from './screens/Profile';
+import VideoPage from './screens/VideoPage';
 
 // Navigators
 const Stack = createNativeStackNavigator();
@@ -201,6 +202,11 @@ const App = () => {
             component={Profile}
             options={{ headerShown: false }} />
 
+          <Stack.Screen
+            name='VideoPage'
+            component={VideoPage}
+            options={{ headerShown: false }} />
+
         </Stack.Navigator>
       </SafeAreaView>
     </NavigationContainer>
@@ -209,4 +215,4 @@ const App = () => {
 
 export default App
 
-const styles = StyleSheet.create({})
+// const styles = StyleSheet.create({})

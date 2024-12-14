@@ -20,9 +20,9 @@ const Header = () => {
             </View>
             <View style={styles.btns}>
 
-                <Pressable 
-                style={styles.searchBtn} 
-                onPress={() => navigation.navigate('Search')}
+                <Pressable
+                    style={styles.searchBtn}
+                    onPress={() => navigation.navigate('Search')}
                 >
                     <Ionicons name="search" size={26} color="white" />
                 </Pressable>
@@ -30,9 +30,9 @@ const Header = () => {
                 {/* Search icon */}
 
                 {/* profile icon */}
-                <Pressable 
-                style={styles.profileBtn} 
-                onPress={() => navigation.navigate('Profile')}
+                <Pressable
+                    style={styles.profileBtn}
+                    onPress={() => navigation.navigate('Profile')}
                 >
                     <Image
                         source={require('../assets/profile.png')}
