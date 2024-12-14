@@ -27,7 +27,7 @@ const Header = () => {
                 {/* Search icon */}
 
                 {/* profile icon */}
-                <Pressable style={styles.profileBtn}>
+                <Pressable style={styles.profileBtn} onPress={() => navigation.navigate('Profile')}>
                     <Image
                         source={require('../assets/profile.png')}
                         style={styles.profileImg}

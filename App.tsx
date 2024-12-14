@@ -29,7 +29,10 @@ import Movies from './screens/Movies';
 import TVShows from './screens/TVShows';
 import Downloads from './screens/Downloads';
 import Search from './screens/Search';
+
+// screens
 import New from './screens/NewAndHot';
+import Profile from './screens/Profile';
 
 // Navigators
 const Stack = createNativeStackNavigator();
@@ -192,6 +195,12 @@ const App = () => {
             name='Search'
             component={Search}
             options={{ headerShown: false }} />
+
+          <Stack.Screen
+            name='Profile'
+            component={Profile}
+            options={{ headerShown: false }} />
+
         </Stack.Navigator>
       </SafeAreaView>
     </NavigationContainer>
