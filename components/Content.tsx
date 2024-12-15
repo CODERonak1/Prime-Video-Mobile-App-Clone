@@ -2,7 +2,18 @@ import { StyleSheet, Text, View, FlatList, SectionList, Image, Pressable } from 
 import React, { Context } from 'react'
 import ContentData from '../Data/ContentData'
 
-const renderImageItem = ({ item }: { item: ContextItem }) => {
+interface ContentItem {
+  name: string,
+  id: string,
+  img: string
+}
+
+interface ContentType {
+  title: string,
+  data: ContentItem[]
+}
+
+const renderImageItem = ({ item }: { item: ContentItem }) => {
   return (
     <Pressable style={styles.itemContainer}>
       <Image source={{ uri: item.img }} style={styles.images} />
@@ -11,7 +22,7 @@ const renderImageItem = ({ item }: { item: ContextItem }) => {
 };
 
 // Render the section content as a horizontal FlatList
-const renderSectionContent = ({ section }: { section: ContextSection }) => {
+const renderSectionContent = ({ section }: { section: ContentType }) => {
   return (
     <FlatList
       data={section.data}
