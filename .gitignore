@@ -43,3 +43,4 @@ supabaseClient.ts
 
 # Data
 WatchNowData.ts
+ContentData.ts

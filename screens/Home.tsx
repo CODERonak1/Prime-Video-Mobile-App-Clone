@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Button } from 'react-native'
+import { StyleSheet, Text, View, Button, } from 'react-native'
 import React from 'react'
 // import { useNavigation } from '@react-navigation/native';
 // import { auth } from '../firebaseConfig'
@@ -7,6 +7,7 @@ import React from 'react'
 // components
 import Header from '../components/Header'
 import WatchNow from '../components/WatchNow'
+import Content from '../components/Content'
 
 const Home = () => {
     // const navigation = useNavigation()
@@ -16,6 +17,7 @@ const Home = () => {
 
                 <Header />
                 <WatchNow />
+                <Content />
                 {/* <Text style={styles.text}>Home</Text> */}
                 {/* <Button
                     title='Log out'
