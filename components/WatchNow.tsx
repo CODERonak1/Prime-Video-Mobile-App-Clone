@@ -19,7 +19,7 @@ const WatchNow = () => {
         return (
             <View style={styles.watchNowImgs}>
                 <Pressable
-                    android_ripple={{ color: 'white', borderless: true }}
+                    android_ripple={{ color: '#ffffff40', foreground: true }}
                     onPress={() => navigation.navigate('VideoPage')}
                     style={styles.onPressImg}
                 >
