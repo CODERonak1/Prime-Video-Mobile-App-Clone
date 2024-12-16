@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View, FlatList, SectionList, Image, Pressable } from 'react-native';
 import React from 'react';
 import ContentData from '../Data/ContentData';
+import { useNavigation } from '@react-navigation/native';
 
 // defining the types
 interface ContentItem {
@@ -15,24 +16,31 @@ interface ContentType {
 }
 
 // rendering the image with pressable
-const renderImageItem = ({ item }: { item: ContentItem }) => {
+const renderImageItem = ({ item, navigation }: { item: ContentItem, navigation: any }) => {
+
+
   return (
-    <Pressable
-      android_ripple={{ color: '#ffffff60', foreground: true }}
-      style={styles.itemBtn}
-    >
-      <Image source={{ uri: item.img }} style={styles.images} />
-      {/* <Text>Just demo</Text> */}
-    </Pressable>
+    <View>
+      {/* pressable for making the image clickable */}
+      <Pressable
+        android_ripple={{ color: '#ffffff60', foreground: true }}
+        style={styles.itemBtn}
+        onPress={() => navigation.navigate("VideoPage")}
+      >
+        {/* content images */}
+        <Image source={{ uri: item.img }} style={styles.images} />
+        {/* <Text>Just demo</Text> */}
+      </Pressable>
+    </View>
   );
 };
 
 // rendering the section content
-const renderSectionContent = ({ section }: { section: ContentType }) => {
+const renderSectionContent = ({ section, navigation }: { section: ContentType, navigation: any }) => {
   return (
     <FlatList
       data={section.data}
-      renderItem={renderImageItem}
+      renderItem={({ item }) => renderImageItem({ item, navigation })}
       horizontal
       keyExtractor={(item) => item.id}
       showsHorizontalScrollIndicator={false}
@@ -43,6 +51,7 @@ const renderSectionContent = ({ section }: { section: ContentType }) => {
 
 // main section content
 const Content = () => {
+  const navigation = useNavigation()
   return (
     <View style={styles.contentContainer}>
       <SectionList
@@ -51,7 +60,7 @@ const Content = () => {
           <Text style={styles.title}>{section.title}</Text>
         )}
         renderItem={() => null}
-        renderSectionFooter={renderSectionContent}
+        renderSectionFooter={({ section }) => renderSectionContent({ section, navigation })}
         keyExtractor={(item) => item.id}
       />
     </View>
