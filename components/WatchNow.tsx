@@ -14,6 +14,7 @@ const WatchNow = () => {
         id: number,
         name: string,
         img: string
+        videoUrl: string
     }
 
     const navigation = useNavigation()
@@ -29,7 +30,7 @@ const WatchNow = () => {
                 {/* pressable for making the image clickable */}
                 <Pressable
                     android_ripple={{ color: '#ffffff40', foreground: true }}
-                    onPress={() => navigation.navigate('VideoPage')}
+                    onPress={() => navigation.navigate('VideoPage', { videoUrl: item.videoUrl, name: item.name })}
                     style={styles.onPressImg}
                 >
                     <Image

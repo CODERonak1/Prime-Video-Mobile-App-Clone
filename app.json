@@ -29,6 +29,9 @@
         "projectId": "e2e0b48e-8cc0-4464-a425-e629f00e0d8d"
       }
     },
-    "owner": "r99.2588"
+    "owner": "r99.2588",
+    "plugins": [
+      "expo-video"
+    ]
   }
 }
