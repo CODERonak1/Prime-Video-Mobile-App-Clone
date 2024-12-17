@@ -7,7 +7,8 @@ import { useNavigation } from '@react-navigation/native';
 interface ContentItem {
   name: string,
   id: string,
-  img: string
+  img: string,
+  videoUrl: string
 }
 
 interface ContentType {
@@ -18,14 +19,13 @@ interface ContentType {
 // rendering the image with pressable
 const renderImageItem = ({ item, navigation }: { item: ContentItem, navigation: any }) => {
 
-
   return (
     <View>
       {/* pressable for making the image clickable */}
       <Pressable
         android_ripple={{ color: '#ffffff60', foreground: true }}
         style={styles.itemBtn}
-        onPress={() => navigation.navigate("VideoPage")}
+        onPress={() => navigation.navigate("VideoPage", { videoUrl: item.videoUrl, name: item.name })}
       >
         {/* content images */}
         <Image source={{ uri: item.img }} style={styles.images} />
