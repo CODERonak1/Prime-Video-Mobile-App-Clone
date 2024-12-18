@@ -9,7 +9,7 @@ import Header from '../components/Header'
 import WatchNow from '../components/Movies/WatchNow'
 import Content from '../components/Movies/Content'
 
-const Home = () => {
+const Movies = () => {
     // const navigation = useNavigation()
 
     const data = [
@@ -44,7 +44,7 @@ const Home = () => {
     )
 }
 
-export default Home
+export default Movies
 
 const styles = StyleSheet.create({
     background: {
