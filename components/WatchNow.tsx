@@ -25,7 +25,7 @@ const WatchNow = () => {
     // Simulate loading data for 2 seconds
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 2000); // Replace with your actual data fetching logic
+    }, 4000);
 
     return () => clearTimeout(timer);
   }, []);

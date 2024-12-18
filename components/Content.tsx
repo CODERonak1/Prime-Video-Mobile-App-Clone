@@ -101,10 +101,10 @@ const Content = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate loading for 2 seconds
+   
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 2000); // Replace with actual data fetching logic
+    }, 4000);
 
     return () => clearTimeout(timer);
   }, []);
