@@ -26,7 +26,7 @@ import Signin from './screens/Signin';
 // main screens
 import Home from './screens/Home';
 import Movies from './screens/Movies';
-import TVShows from './screens/TVShows';
+import TVShows from './screens/TV Shows';
 import Downloads from './screens/Downloads';
 import Search from './screens/Search';
 
