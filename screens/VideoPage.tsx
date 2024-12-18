@@ -2,7 +2,7 @@ import { StyleSheet, Text, View, Pressable } from 'react-native'
 import React from 'react'
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { useVideoPlayer, VideoView } from 'expo-video';
-import WatchNowData from '../Data/WatchNowData';
+import WatchNowData from '../Data/Home/WatchNowData';
 
 // icons
 import Ionicons from '@expo/vector-icons/Ionicons';

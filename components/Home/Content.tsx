@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View, FlatList, SectionList, Image, Pressable, Animated } from 'react-native';
 import React, { useState, useEffect, useRef } from 'react';
-import ContentData from '../Data/ContentData';
+import ContentData from '../../Data/Home/ContentData';
 import { useNavigation } from '@react-navigation/native';
 
 // Defining the types
@@ -101,7 +101,7 @@ const Content = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-   
+
     const timer = setTimeout(() => {
       setLoading(false);
     }, 4000);

@@ -6,8 +6,8 @@ import React from 'react'
 
 // components
 import Header from '../components/Header'
-import WatchNow from '../components/WatchNow'
-import Content from '../components/Content'
+import WatchNow from '../components/Home/WatchNow'
+import Content from '../components/Home/Content'
 
 const Home = () => {
     // const navigation = useNavigation()

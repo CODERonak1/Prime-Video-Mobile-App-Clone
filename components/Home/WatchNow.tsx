@@ -1,6 +1,6 @@
 import { StyleSheet, View, FlatList, Pressable, Dimensions, Animated, Image } from 'react-native';
 import React, { useRef, useState, useEffect } from 'react';
-import WatchNowData from '../Data/WatchNowData';
+import WatchNowData from '../../Data/Home/WatchNowData';
 import { useNavigation } from '@react-navigation/native';
 
 // Get screen width
