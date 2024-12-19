@@ -83,7 +83,7 @@ const Signin = () => {
 
                 {/* continue button */}
                 <Pressable style={styles.continueBtn}
-                    android_ripple={{ color: 'rgba(0, 0, 0, 0.2)' }}
+                    android_ripple={{ color: 'rgba(0, 0, 0, 0.2)', foreground: true }}
                     onPress={handleSignin}
                 >
                     <Text style={styles.continueText}>Continue</Text>

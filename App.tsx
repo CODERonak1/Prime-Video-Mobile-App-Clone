@@ -61,9 +61,9 @@ const NewTopTabBar = () => {
         tabBarActiveTintColor: 'white'
       }}>
       {/* new releases screen */}
-      <NewTopTab.Screen name='New Releases 🔥' component={NewReleases} />
+      <NewTopTab.Screen name='New Releases' component={NewReleases} />
       {/* coming soon screen*/}
-      <NewTopTab.Screen name='Coming Soon ✨' component={ComingSoon} />
+      <NewTopTab.Screen name='Coming Soon' component={ComingSoon} />
     </NewTopTab.Navigator>
   )
 }

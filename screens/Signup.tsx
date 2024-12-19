@@ -94,7 +94,7 @@ const Signup = () => {
 
                 {/* create your account button */}
                 <Pressable style={styles.createAccBtn}
-                    android_ripple={{ color: 'rgba(0, 0, 0, 0.2)' }}
+                    android_ripple={{ color: 'rgba(0, 0, 0, 0.2)', foreground: true }}
                     onPress={handleSignup}
                 >
                     <Text style={styles.createAccText}>Create your account</Text>
