@@ -31,14 +31,39 @@ import Downloads from './screens/Downloads';
 import Search from './screens/Search';
 
 // screens
-import New from './screens/NewAndHot';
 import Profile from './screens/Profile';
 import VideoPage from './screens/VideoPage';
+import NewReleases from './screens/NewReleases';
+import ComingSoon from './screens/ComingSoon';
 
 // Navigators
-const Stack = createNativeStackNavigator();
-const BottomTabs = createBottomTabNavigator();
-const MaterialTopTab = createMaterialTopTabNavigator();
+const Stack = createNativeStackNavigator(); // for all the screens
+const BottomTabs = createBottomTabNavigator(); // for the main screens
+const MaterialTopTab = createMaterialTopTabNavigator(); // for the auth screems
+const NewTopTab = createMaterialTopTabNavigator(); // for new and hot screen
+
+// New Top tab bar for the new and hot screen for showing the new releases and upcoming
+const NewTopTabBar = () => {
+  return (
+    <NewTopTab.Navigator 
+    screenOptions={{
+      tabBarStyle: {
+        backgroundColor: '#04193d'
+      },
+
+      tabBarLabelStyle: {
+        color: 'white',
+        fontSize: 18,
+        fontWeight: 'bold'
+      }
+    }}>
+      {/* new releases screen */}
+      <NewTopTab.Screen name='New Releases' component={NewReleases} />
+      {/* coming soon screen*/}
+      <NewTopTab.Screen name='Coming Soon' component={ComingSoon} />
+    </NewTopTab.Navigator>
+  )
+}
 
 // Material top tab navigation screen
 const TopTabBar = () => {
@@ -56,12 +81,14 @@ const TopTabBar = () => {
           fontWeight: 'bold'
         }
       }}>
+
       {/* sign in screen */}
       <MaterialTopTab.Screen
         name='Signin'
         component={Signin}
         options={{ title: 'SIGN IN' }} />
       {/* sign up screen */}
+
       <MaterialTopTab.Screen
         name='Signup'
         component={Signup}
@@ -112,10 +139,10 @@ const BottomTabBar = () => {
             size={size} color={color} />
         }} />
 
-      {/* new screen forshowing whats new the prime video */}
+      {/* new and hot screen for showing whats new the prime video and coming soon*/}
       <BottomTabs.Screen
         name='New & Hot'
-        component={New}
+        component={NewTopTabBar}
         options={{
           tabBarIcon: ({ focused, size, color }) => <MaterialCommunityIcons name={focused ? 'play-box-multiple' : 'play-box-multiple-outline'}
             size={size} color={color} />
