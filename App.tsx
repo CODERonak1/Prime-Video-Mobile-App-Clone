@@ -30,7 +30,7 @@ import TVShows from './screens/TV Shows';
 import Downloads from './screens/Downloads';
 import Search from './screens/Search';
 
-// screens
+// other screens
 import Profile from './screens/Profile';
 import VideoPage from './screens/VideoPage';
 import NewReleases from './screens/NewReleases';
@@ -45,22 +45,25 @@ const NewTopTab = createMaterialTopTabNavigator(); // for new and hot screen
 // New Top tab bar for the new and hot screen for showing the new releases and upcoming
 const NewTopTabBar = () => {
   return (
-    <NewTopTab.Navigator 
-    screenOptions={{
-      tabBarStyle: {
-        backgroundColor: '#04193d'
-      },
+    <NewTopTab.Navigator
+      screenOptions={{
+        tabBarStyle: {
+          backgroundColor: '#04193d'
+        },
 
-      tabBarLabelStyle: {
-        color: 'white',
-        fontSize: 18,
-        fontWeight: 'bold'
-      }
-    }}>
+        tabBarLabelStyle: {
+          fontSize: 18,
+          fontWeight: 'bold',
+          fontStyle: 'italic'
+        },
+
+        tabBarInactiveTintColor: 'grey',
+        tabBarActiveTintColor: 'white'
+      }}>
       {/* new releases screen */}
-      <NewTopTab.Screen name='New Releases' component={NewReleases} />
+      <NewTopTab.Screen name='New Releases 🔥' component={NewReleases} />
       {/* coming soon screen*/}
-      <NewTopTab.Screen name='Coming Soon' component={ComingSoon} />
+      <NewTopTab.Screen name='Coming Soon ✨' component={ComingSoon} />
     </NewTopTab.Navigator>
   )
 }
