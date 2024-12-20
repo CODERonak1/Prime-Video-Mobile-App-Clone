@@ -2,12 +2,17 @@ import { StyleSheet, Text, View, Pressable } from 'react-native'
 import React from 'react'
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { useVideoPlayer, VideoView } from 'expo-video';
-import WatchNowData from '../Data/Home/WatchNowData';
+import AntDesign from '@expo/vector-icons/AntDesign';
 
 // icons
 import Ionicons from '@expo/vector-icons/Ionicons';
 
 const VideoPage = () => {
+
+    const Download = () => {
+        console.log("Download stared!");
+
+    }
 
     const route = useRoute();
     const { videoUrl, name } = route.params
@@ -35,6 +40,17 @@ const VideoPage = () => {
                 </View>
 
                 <Text style={styles.text}>{name}</Text>
+
+                <View style={styles.btnContainer}>
+                    <Pressable
+                        style={styles.downloadBtn}
+                        onPress={Download}
+                        // android_ripple={{ color: 'rgba(255, 255, 255, 0.2)', foreground: true }}
+                    >
+                        <AntDesign name="download" size={30} color="white" style={styles.downloadIcon} />
+                        <Text style={styles.downloadText}>Download</Text>
+                    </Pressable>
+                </View>
             </View>
         </View>
     )
@@ -79,8 +95,29 @@ const styles = StyleSheet.create({
     video: {
         height: '100%',
         width: '100%',
+    },
+
+    btnContainer: {
+        flex: 1,
+        alignItems: 'center',
+        marginTop: 50,
+
+    },
+
+    downloadBtn: {
+        alignItems: 'center',
+        // borderWidth: 1,
+        // borderColor: 'white',
+        padding: 8,
+        borderRadius: 40,
+    },
+
+    downloadText: {
+        color: 'white',
+    },
+
+    downloadIcon: {
+
     }
-
-
 
 })
