@@ -73,6 +73,7 @@ const TopTabBar = () => {
   return (
     // navigator style
     <MaterialTopTab.Navigator
+    initialRouteName='Signup'
       screenOptions={{
         tabBarStyle: {
           backgroundColor: '#04193d'
@@ -82,7 +83,8 @@ const TopTabBar = () => {
           color: 'white',
           fontSize: 18,
           fontWeight: 'bold'
-        }
+        },
+
       }}>
 
       {/* sign in screen */}
